@@ -1,1 +1,1 @@
- script that print  symbols and inhabit symbols
+script that copy HTML files
