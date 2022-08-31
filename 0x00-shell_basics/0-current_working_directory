@@ -1,1 +1,2 @@
-$dir_path
+#!/bin/bash
+pwd
