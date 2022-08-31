@@ -1,1 +1,1 @@
-This is a shell basic project for ALX students
+Task 0 .Where am i?
