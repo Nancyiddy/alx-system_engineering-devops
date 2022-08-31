@@ -1,1 +1,1 @@
-“Move file Betty to my first directory”
+“script to delete the file betty from my first directory”
