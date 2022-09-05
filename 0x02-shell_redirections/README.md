@@ -1,1 +1,1 @@
-Shell script that creates a file named Best School ending by a new line
+ Script that d isplay the number of lines that contain the pattern “bin” in the file /etc/passwd
