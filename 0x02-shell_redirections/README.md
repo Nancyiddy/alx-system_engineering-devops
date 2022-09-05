@@ -1,1 +1,1 @@
- Display all lines of the file /etc/ssh/sshd_config starting with a letter
+ script that Create a script that removes all letters c and C from input..
