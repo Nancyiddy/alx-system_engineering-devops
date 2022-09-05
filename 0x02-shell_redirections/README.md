@@ -1,1 +1,1 @@
- Script that deletes all the regular files with a .js extension.
+Shell script that creates a file named Best School ending by a new line
