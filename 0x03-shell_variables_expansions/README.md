@@ -1,1 +1,1 @@
-script that prints all possible combinations of two letters, except oo
+ Script that prints a number with two decimal places, followed by a new line
