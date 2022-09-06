@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "%0.2f\n" $NUM
+perl -lne print if $. % 2 == 1
