@@ -1,1 +1,1 @@
-script that prints the result of the addition of 128 
+ Script that prints a number with two decimal places, followed by a new line
