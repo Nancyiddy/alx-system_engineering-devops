@@ -1,1 +1,1 @@
-The eggs of the brood need to be an odd number
+ script that prints the result of the addition of 128 .
