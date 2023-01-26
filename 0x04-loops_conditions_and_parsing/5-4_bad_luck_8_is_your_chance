@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#loops from 1 to 10 and:
+#displays bad luck for the 4th loop iteration
+#displays good luck for the 8th loop iteration
+#displays Best School for the other iterations
+#You must use the while loop (for and until are forbidden)
+#You must use the if, elif and else statements
+COUNTER=1
+while [  $COUNTER -le 10 ];
+do
+    if [ $COUNTER -eq 4 ]
+    then
+	echo "bad luck"
+    elif [ $COUNTER -eq 8 ]
+    then
+        echo "good luck"
+    else
+	echo "Best School"
+    fi
+    let COUNTER+=1
+done

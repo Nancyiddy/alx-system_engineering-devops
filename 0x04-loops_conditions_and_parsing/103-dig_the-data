@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Requirements:
+# The exact format must be:
+# OCCURENCE_NUMBER IP HTTP_CODE
+# in a list format
+# Ordered from the greatest to the lowest number of occurrence
+# See example
+# You must use awk
+awk '{print $1 " " $9}' apache-access.log | sort | uniq -c | sort -nr
