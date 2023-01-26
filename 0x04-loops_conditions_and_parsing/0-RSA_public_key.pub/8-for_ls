@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
-# Bash script that displays content
-for search in *
+#displays:
+#The content of the current directory
+#In a list format
+#Where only the part of the name after the first dash is displayed
+#You must use the for loop (while and until are forbidden)
+#Do not display hidden files
+LIST="$(ls)"
+for i in $LIST;
 do
-	echo "$search" | cut -d "-" -f 2
+    echo "$i" | cut -d'-' -f2
 done
