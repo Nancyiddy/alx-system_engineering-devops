@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
-#displays line containing the bash word
+# Displays lines containing the bash word
 # shellcheck disable=SC2009
-ps auxf | grep bash
+# grep - Search specific word and execute
+ps -aufx | grep bash

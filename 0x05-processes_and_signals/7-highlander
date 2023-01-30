@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
-# displays To infinity and beyond indefinitely and
-# I am invincible!!! when receiving a SIGTERM signal
-trap "echo 'I am invincible!!!'" SIGTERM
-CONDITION=:
-while [ $CONDITION ]
+# Infinity loop and sending signal
+# trap receive signal
+trap "echo I am invincible!!!" SIGTERM
+while :
 do
-    echo "To infinity and beyond"
-    sleep 2
+	echo "To infinity and beyond"
+	sleep 2
 done

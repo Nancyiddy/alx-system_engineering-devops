@@ -1,12 +1,14 @@
-#include <stdio.h>
 #include <stdlib.h>
+#include <sys/types.h>
 #include <unistd.h>
+#include <stdio.h>
 
 /**
- * infite_while - 1 sec delay function
- * Return: Always 0 on success, 1 on error
+ * infinite_while - Infinite while for manage zombie process
+ * Void: No entry parameters
+ * Return: exit 0 success
  */
-int infite_while(void)
+int infinite_while(void)
 {
 	while (1)
 	{
@@ -16,21 +18,28 @@ int infite_while(void)
 }
 
 /**
- * main - entry point
- * Return: Always 0 on success, 1 on error
+ * main - Main function zombie process
+ * Void: No entry parameters
+ * Return: Exit 0 success
  */
 int main(void)
 {
-	pid_t pid;
-	int i;
+	pid_t child_pd;
+	int num_of_proc;
 
-	for (i = 0; i < 5; i++)
+	for (num_of_proc = 1; num_of_proc < 6; num_of_proc++)
 	{
-		pid = fork();
-		if (pid == 0)
+		child_pd = fork();
+		if (child_pd > 0)
+		{
+			printf("Zombie process created, PID: %d\n", child_pd);
+			sleep(1);
+		}
+		else
+		{
 			exit(0);
-		printf("Zombie process created, PID: %d\n", pid);
+		}
 	}
-	infite_while();
+	infinite_while();
 	return (0);
 }
