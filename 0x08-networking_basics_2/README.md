@@ -32,7 +32,7 @@ Read or watch:
 ------
 
 ## Author
-* **Joseph Mahiuha** - [Mahiuha](https://github.com/Mahiuha)
+* **Nancy Idiong** - [Nancy](https://github.com/Nancyiddy)
 
 -----
 
