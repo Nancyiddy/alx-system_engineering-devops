@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+# Write Bash (init) script 10-manage_my_process that manages manage_my_process
+# Requirements:
+# When passing the argument start:
+# Starts manage_my_process
+# Creates a file containing its PID in /var/run/my_process.pid
+# Displays manage_my_process started
+# When passing the argument stop:
+# Stops manage_my_process
+# Deletes the file /var/run/my_process.pid
+# Displays manage_my_process stopped
+# When passing the argument restart
+# Stops manage_my_process
+# Deletes the file /var/run/my_process.pid
+# Starts manage_my_process
+# Creates a file containing its PID in /var/run/my_process.pid
+# Displays manage_my_process restarted
+# Displays Usage: manage_my_process {start|stop|restart} if any other argument
+#  or no argument is passed
+# Note that this init script is far from being perfect (but good enough for
+# the sake of manipulating process and PID file), for example we do not handle
+# the case where we check if a process is already running when doing
+# ./10-manage_my_process start, in our case it will simply create a new process
+# instead of saying that it is already started.
+case "$1" in
+    start)
+	./manage_my_process &
+	echo "$!" | cat > /var/run/my_process.pid &
+	echo $"manage_my_process started"
+	;;
+    stop)
+	pkill -f ./manage_my_process &
+	rm /var/run/my_process.pid &
+	echo $"manage_my_process stopped"
+	;;
+    restart)
+	pkill -f ./manage_my_process &
+	rm /var/run/my_process.pid &
+	./manage_my_process &
+	echo "$!" | cat > /var/run/my_process.pid &
+	echo $"manage_my_process restarted"
+	;;
+    *)
+	echo $"Usage: manage_my_process {start|stop|restart}"
+	exit 1
+esac
