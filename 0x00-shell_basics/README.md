@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-script that moves all files beginning with an uppercase letter to the directory
-=======
-script that copy HTML files
->>>>>>> 0fed7201d2e01390ac693589930236d43e6a53ce
+A magic file that can be used with the command file to detect School data files. School data files always contain the string SCHOOL at offset 0.
