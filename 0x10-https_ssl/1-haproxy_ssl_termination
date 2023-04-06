@@ -1,23 +1,40 @@
 global
-        log /dev/log    local0
-	stats socket /run/haproxy/admin.sock mode 660 level admin
+    log     /dev/log local0
+    maxconn 2048
+    user    haproxy
+    group   haproxy
+    tune.ssl.default-dh-param 2048
 
 defaults
-        log     global
-        mode    http
-        option  httplog
-	timeout connect  10s
-	timeout client  30s
-	timeout server  30s
+    log     global
+    mode    http
+    option  httplog
+    option  dontlognull
+    retries 3
+    option  redispatch
+    timeout connect  5000
+    timeout client  10000
+    timeout server  10000
+    option  forwardfor
+    option  http-server-close
 
-frontend th3gr00t-tech-frontend
-	bind *:80
-	bind *:443 ssl crt /etc/haproxy/certs/th3gr00t.tech.pem
-	http-request redirect scheme https unless { ssl_fc }
-	http-request set-header X-Forwarded-Proto https
-	default_backend th3gr00t-tech-backend
+frontend www-http
+    bind   0.0.0.0:80
+    reqadd X-Forwarded-Proto:\ http
+    default_backend www-backend
 
-backend th3gr00t-tech-backend
-	balance roundrobin
-	server 453-web-01 35.243.128.200:80 check
-	server 453-web-02 3.239.120.96:80 check
+frontend www-https
+    bind   0.0.0.0:443 ssl crt /etc/haproxy/certs/www.adekunleo1.tech.pem
+    reqadd X-Forwarded-Proto:\ https
+    acl    letsencrypt-acl path_beg /.well-known/acme-challenge/
+    use_backend letsencrypt-backend if letsencrypt-acl
+    default_backend www-backend
+
+backend www-backend
+    balance  roundrobin
+    redirect scheme https if !{ ssl_fc }
+    server 26780-web-01 100.26.10.43:80 check
+    server 26780-web-02 54.87.89.153:80 check
+
+backend letsencrypt-backend
+    server letsencrypt 127.0.0.1:54321
