@@ -12,7 +12,7 @@ defaults
 
 frontend th3gr00t-tech-frontend
 	bind *:80
-	bind *:443 ssl crt /etc/haproxy/certs/th3gr00t.tech.pem
+	bind *:443 ssl crt /etc/haproxy/certs/nancyiddy.tech.pem
 	http-request redirect scheme https code 301 unless { ssl_fc }
 	http-request set-header X-Forwarded-Proto https
 	default_backend th3gr00t-tech-backend
