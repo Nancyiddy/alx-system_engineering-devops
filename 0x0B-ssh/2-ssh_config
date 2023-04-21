@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-# Client configuration file
 Host 54.174.89.125
      HostName 54.174.89.125
      User ubuntu
